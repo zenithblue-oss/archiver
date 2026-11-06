@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Archiver</title>
+  <link rel="icon" type="image/png" href="assets/icon.png">
+  <style>
+    :root {
+      --bg: #0f1115;
+      --card-bg: #181b22;
+      --card-border: #282c37;
+      --text: #f0f2f5;
+      --text-muted: #8c93a0;
+      --accent: #3b82f6;
+      --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    header {
+      padding: 2rem 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .brand img {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+    }
+    .content {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+    h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .date { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2.5rem; }
+    h2 { font-size: 1.4rem; font-weight: 700; margin: 2rem 0 1rem; color: #fff; }
+    p { margin-bottom: 1rem; color: #d1d5db; }
+    ul { margin: 1rem 0 1.5rem 1.5rem; color: #d1d5db; }
+    li { margin-bottom: 0.5rem; }
+    footer {
+      max-width: 800px;
+      margin: 4rem auto 2rem;
+      padding: 2rem 1.5rem 0;
+      border-top: 1px solid var(--card-border);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <a href="index.html" style="display: flex; align-items: center; gap: 0.75rem; color: #fff; text-decoration: none;">
+      <img src="assets/icon.png" alt="Archiver logo">
+      <span>Archiver</span>
+    </a>
+  </div>
+  <nav>
+    <a href="index.html">← Back to Overview</a>
+  </nav>
+</header>
+
+<main class="content">
+  <h1>Privacy Policy</h1>
+  <div class="date">Effective date: November 6, 2026</div>
+
+  <p>Archiver is a privacy-first archive utility for iOS, iPadOS, macOS, and visionOS maintained by ZenithBlue. This policy describes how Archiver handles your data.</p>
+
+  <h2>Zero Data Collection</h2>
+  <p>Archiver is built with complete user privacy as a foundational principle:</p>
+  <ul>
+    <li><strong>No Analytics or Telemetry:</strong> Archiver contains zero tracking SDKs, advertising libraries, third-party analytics, or behavioral telemetry frameworks.</li>
+    <li><strong>No Remote Servers:</strong> Archiver operates without online accounts or logins. The application does not transmit your archives, files, directory names, or passwords to any remote server.</li>
+    <li><strong>Fully Offline Processing:</strong> All compression, extraction, verification, and inspection routines execute locally on your physical hardware.</li>
+  </ul>
+
+  <h2>Local Storage & Security</h2>
+  <ul>
+    <li><strong>File Access:</strong> Archiver strictly uses Apple's security-scoped bookmarks and system document pickers. It accesses only the individual files and folders you explicitly choose to open.</li>
+    <li><strong>Password Vault:</strong> Passwords stored in the built-in vault are encrypted and saved securely inside Apple's Keychain on your device.</li>
+    <li><strong>iCloud Synchronization (Optional):</strong> If you enable iCloud sync, your preferences and encrypted vault items sync exclusively across your own devices through Apple's end-to-end encrypted iCloud / private CloudKit database. The developer has no access to your iCloud data.</li>
+  </ul>
+
+  <h2>System Permissions</h2>
+  <ul>
+    <li><strong>File Storage:</strong> Used only to read archives you select and save extracted outputs to destinations you specify.</li>
+    <li><strong>Photo Library (Optional):</strong> Requested only if you explicitly choose to save an extracted picture directly to your Photos library.</li>
+  </ul>
+
+  <h2>App Store Privacy Nutrition Label</h2>
+  <p>Under Apple's App Store privacy guidelines, Archiver's privacy label is <strong>Data Not Collected</strong>.</p>
+
+  <h2>Contact & Inquiries</h2>
+  <p>For questions or privacy inquiries, please open an issue on the official issue tracker:</p>
+  <p><a href="https://github.com/zenithblue-oss/archiver/issues" target="_blank" rel="noopener">https://github.com/zenithblue-oss/archiver/issues</a></p>
+</main>
+
+<footer>
+  <div>© 2026 ZenithBlue.</div>
+  <div><a href="index.html">Home</a></div>
+</footer>
+
+</body>
+</html>

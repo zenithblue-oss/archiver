@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Archiver — Every archive. Every device. Nothing collected.</title>
+  <meta name="description" content="Fast, private multiplatform archive manager for iPhone, iPad, Mac, and Apple Vision Pro. Open, preview, and create ZIP, 7Z, RAR, TAR with zero data collection.">
+  <link rel="icon" type="image/png" href="assets/icon.png">
+  <style>
+    :root {
+      --bg: #0f1115;
+      --card-bg: #181b22;
+      --card-border: #282c37;
+      --text: #f0f2f5;
+      --text-muted: #8c93a0;
+      --accent: #3b82f6;
+      --accent-hover: #2563eb;
+      --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    header {
+      padding: 2rem 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .brand img {
+      width: 40px;
+      height: 40px;
+      border-radius: 9px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+    nav a {
+      margin-left: 1.5rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+    nav a:hover { color: #fff; text-decoration: none; }
+    .hero {
+      text-align: center;
+      padding: 4rem 1.5rem 3rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-block;
+      padding: 0.35rem 0.9rem;
+      background: #1e2430;
+      border: 1px solid #2e384d;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      color: #93c5fd;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-size: 3.25rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 2.5rem;
+    }
+    .cta-group {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3.5rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.6rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.15s ease-in-out;
+    }
+    .btn-primary {
+      background: #fff;
+      color: #000;
+    }
+    .btn-primary:hover {
+      background: #e2e8f0;
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      background: var(--card-bg);
+      color: #fff;
+      border: 1px solid var(--card-border);
+    }
+    .btn-secondary:hover {
+      background: #232732;
+      text-decoration: none;
+    }
+    .screenshots-preview {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 2rem auto;
+      max-width: 1100px;
+      padding: 0 1.5rem;
+      overflow-x: auto;
+    }
+    .screenshots-preview img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 16px;
+      border: 1px solid var(--card-border);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 2rem;
+    }
+    .card-icon {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .formats-section {
+      background: #14171f;
+      border-top: 1px solid var(--card-border);
+      border-bottom: 1px solid var(--card-border);
+      padding: 4rem 1.5rem;
+      text-align: center;
+    }
+    .formats-section h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .formats-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      max-width: 800px;
+      margin: 1.5rem auto 0;
+    }
+    .badge {
+      background: #1c2230;
+      border: 1px solid #2e384d;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-family: ui-monospace, Menlo, Monaco, Consolas, monospace;
+      color: #cbd5e1;
+    }
+    footer {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      border-top: 1px solid #1e222b;
+    }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.25rem; }
+      header, footer { flex-direction: column; gap: 1rem; text-align: center; }
+      nav a { margin: 0 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="assets/icon.png" alt="Archiver logo">
+    <span>Archiver</span>
+  </div>
+  <nav>
+    <a href="#features">Features</a>
+    <a href="#formats">Formats</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="https://github.com/zenithblue-oss/archiver/issues" target="_blank" rel="noopener">Support</a>
+    <a href="https://github.com/zenithblue-oss/archiver" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-badge">iOS · iPadOS · macOS · visionOS</div>
+    <h1>Every archive. Every device.<br>Nothing collected.</h1>
+    <p>A fast, native archive utility built for Apple silicon. Open, inspect, extract, and create encrypted archives with zero telemetry and complete privacy.</p>
+    <div class="cta-group">
+      <a class="btn btn-primary" href="https://apps.apple.com/app/id6829154073" target="_blank" rel="noopener">
+        <span>Download on App Store</span>
+      </a>
+      <a class="btn btn-secondary" href="https://github.com/zenithblue-oss/archiver/issues" target="_blank" rel="noopener">
+        <span>Report an Issue</span>
+      </a>
+    </div>
+  </section>
+
+  <div class="screenshots-preview">
+    <img src="assets/screenshots/mac.png" alt="Archiver on macOS" loading="lazy">
+  </div>
+
+  <section id="features" class="grid">
+    <div class="card">
+      <div class="card-icon">⚡</div>
+      <h3>In-Place Instant Inspection</h3>
+      <p>Browse directories, search entries, and view file metadata instantly without decompressing gigabytes of data to disk.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🛡️</div>
+      <h3>Zero Data Collection</h3>
+      <p>No tracking, no analytics, no ads, and no cloud relay. Archiver runs completely offline on your device.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔐</div>
+      <h3>AES-256 & Keychain Vault</h3>
+      <p>Create encrypted ZIP and 7Z archives with optional filename encryption. Store archive passwords securely in Apple Keychain.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🧩</div>
+      <h3>Native Extensions</h3>
+      <p>Full Quick Look and thumbnail generation in Files and Finder, Share Sheet actions, and Finder Sync integration.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">💻</div>
+      <h3>AppleScript & Automation</h3>
+      <p>Script your workflows on macOS via Apple Events, or run seamless compression actions from Shortcuts on iOS.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🍎</div>
+      <h3>Universal Purchase</h3>
+      <p>Single purchase unlocks the full Pro experience across iPhone, iPad, Mac, and Apple Vision Pro.</p>
+    </div>
+  </section>
+
+  <section id="formats" class="formats-section">
+    <h2>Comprehensive Format Support</h2>
+    <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">Powered by high-performance native engines with multi-core Apple silicon acceleration.</p>
+    <div class="formats-badges">
+      <span class="badge">ZIP</span>
+      <span class="badge">7Z</span>
+      <span class="badge">RAR</span>
+      <span class="badge">TAR</span>
+      <span class="badge">GZ</span>
+      <span class="badge">BZ2</span>
+      <span class="badge">XZ</span>
+      <span class="badge">ZSTD</span>
+      <span class="badge">BROTLI</span>
+      <span class="badge">ISO</span>
+      <span class="badge">CAB</span>
+      <span class="badge">MSI</span>
+      <span class="badge">WIM</span>
+      <span class="badge">CHM</span>
+      <span class="badge">CPIO</span>
+      <span class="badge">AR</span>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div>© 2026 ZenithBlue. All rights reserved.</div>
+  <div>
+    <a href="privacy.html" style="color: var(--text-muted); margin-right: 1.5rem;">Privacy Policy</a>
+    <a href="https://github.com/zenithblue-oss/archiver/issues" style="color: var(--text-muted);">Issue Tracker</a>
+  </div>
+</footer>
+
+</body>
+</html>
