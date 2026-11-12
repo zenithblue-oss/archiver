@@ -2,7 +2,7 @@
 
 A fast, private, multiplatform archive manager for iPhone, iPad, Mac, and Apple Vision Pro.
 
-[![App Store](https://img.shields.io/badge/App_Store-Download-blue?logo=apple&logoColor=white)](https://apps.apple.com/app/id6829154073)
+[![App Store](https://img.shields.io/badge/App_Store-Download-blue?logo=apple&logoColor=white)](https://apps.apple.com/app/id6831857454)
 [![Website](https://img.shields.io/badge/Website-zenithblue--oss.github.io%2Farchiver-emerald)](https://zenithblue-oss.github.io/archiver/)
 [![Privacy](https://img.shields.io/badge/Privacy-Data_Not_Collected-success)](https://zenithblue-oss.github.io/archiver/privacy.html)
 
